@@ -1,10 +1,10 @@
-// import React from 'react';
 // import PropTypes from 'prop-types';
 
 import { useParams } from "react-router-dom";
 import GadgetHero from "./GadgetHero";
 import useSpecificGadget from "../hooks/usespecificGadget";
 import { TransferGadget } from "../Contexts/TransferGadget";
+import { Helmet } from "react-helmet-async";
 
 
 const Gadget = () => {
@@ -13,6 +13,9 @@ const Gadget = () => {
 
   return (
     <>
+    <Helmet>
+      <title>{specificGadget?.product_title || "Loading..."} | Gadget Heaven (PHeighthAssignment)</title>
+    </Helmet>
     <TransferGadget.Provider value={specificGadget}>
       <GadgetHero />
     </TransferGadget.Provider>

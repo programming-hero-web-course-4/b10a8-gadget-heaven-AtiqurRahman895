@@ -1,4 +1,3 @@
-// import React from 'react';
 // import PropTypes from 'prop-types';
 import { useRef } from "react";
 import bannerImg from "../../assets/banner.jpg";
@@ -6,7 +5,7 @@ import useBannerHeightWidth from "../../Hooks/useBannerHeightWidth";
 
 const Hero = () => {
   const BannerRef = useRef(null);
-  const [bannerSectionWidth, bannerSectionHeight] = useBannerHeightWidth({
+  const [bannerSectionWidth, ] = useBannerHeightWidth({
     BannerRef,
   });
 

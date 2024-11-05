@@ -1,9 +1,9 @@
-// import React from 'react';
 // import PropTypes from 'prop-types';
 
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import NavMenus from "./NavMenus";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { TransferLists } from "../../Contexts/TransferLists";
 
 const Header = () => {
     const location= useLocation() 
@@ -11,8 +11,10 @@ const Header = () => {
 
     const [scrollY, setScrollY]=useState(0)
     const headerRef = useRef(null)
+    const [cartList, ,wishList, ,totalCost, ]=useContext(TransferLists)    
+
     useEffect(()=>{
-      window.addEventListener(`scroll`,()=>{
+      const changeHeaderColor=()=>{
         setScrollY(window.scrollY)
         if (window.scrollY >= 16) {
           document
@@ -21,8 +23,9 @@ const Header = () => {
           document
             headerRef.current.classList.remove(`headerSectionAnimation`);
         }
-  
-      })
+      }
+
+      window.addEventListener(`scroll`, changeHeaderColor)
   },[]) 
 //   console.log(scrollY)
 
@@ -55,7 +58,11 @@ const Header = () => {
 
             </ul>
           </div>
-          <a className={`btn btn-ghost hover:bg-transparent ${location.pathname!=="/" || scrollY>=16?"text-black":"text-white"} ${location.pathname!=="/" || scrollY>=16?"hover:text-black":"hover:text-white"} text-lg`}>Gadget Heaven</a>
+          <Link 
+            to={"/"}
+            className={`btn btn-ghost hover:bg-transparent ${location.pathname!=="/" || scrollY>=16?"text-black":"text-white"} ${location.pathname!=="/" || scrollY>=16?"hover:text-black":"hover:text-white"} text-lg`}>
+            Gadget Heaven
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -80,7 +87,7 @@ const Header = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item top-[-5px]">8</span>
+                <span className="badge badge-sm indicator-item top-[-5px]">{cartList.length}</span>
               </div>
             </div>
             <div
@@ -88,10 +95,10 @@ const Header = () => {
               className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow text-custom-black"
             >
               <div className="card-body">
-                <span className="text-lg font-bold">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="text-lg font-bold">{cartList.length} Items</span>
+                <span className="text-custom-purple">Subtotal: ${totalCost}</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">View cart</button>
+                  <button className="btn bg-custom-purple text-white hover:text-black btn-block">View cart</button>
                 </div>
               </div>
             </div>
@@ -115,7 +122,7 @@ const Header = () => {
                     strokeLinejoin="bevel"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item top-[-5px]">8</span>
+                <span className="badge badge-sm indicator-item top-[-5px]">{wishList.length}</span>
               </div>
             </div>
             <div
@@ -123,10 +130,9 @@ const Header = () => {
               className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow text-custom-black"
             >
               <div className="card-body">
-                <span className="text-lg font-bold">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="text-lg font-bold">{wishList.length} Items</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">View cart</button>
+                  <button className="btn bg-custom-purple text-white hover:text-black btn-block">View wishlist</button>
                 </div>
               </div>
             </div>
@@ -136,5 +142,9 @@ const Header = () => {
     </header>
   );
 };
+
+// Footer.propTypes = {
+    
+// };
 
 export default Header;

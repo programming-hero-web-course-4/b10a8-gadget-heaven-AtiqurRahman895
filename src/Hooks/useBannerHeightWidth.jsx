@@ -1,5 +1,4 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { useEffect, useState } from "react";
 
@@ -13,7 +12,7 @@ const useBannerHeightWidth = ({BannerRef}) => {
                 setBannerSectionHeight(BannerRef.current.offsetHeight)
             }
         }
-        setTimeout(updateSectionHeightWidth, 100);
+        setTimeout(updateSectionHeightWidth, 300);
         window.addEventListener(`resize`,()=>{
           updateSectionHeightWidth()
         })
@@ -24,8 +23,10 @@ const useBannerHeightWidth = ({BannerRef}) => {
     return [bannerSectionWidth,bannerSectionHeight];
 };
 
-// useBannerHeightWidth.propTypes = {
-    
-// };
+useBannerHeightWidth.propTypes = {
+    BannerRef: PropTypes.shape({
+        current: PropTypes.instanceOf(Element),
+    }).isRequired,
+};
 
 export default useBannerHeightWidth;

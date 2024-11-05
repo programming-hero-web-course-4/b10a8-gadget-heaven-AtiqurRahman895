@@ -5,6 +5,10 @@ import {createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Base from './components/baseComponent/Base';
 import Home from './components/HomeComponent/Home';
 import Gadget from './GadgetPageComponent/Gadget';
+// import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +29,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
+
+    <ToastContainer position="top-center"/>
+
   </StrictMode>,
 )

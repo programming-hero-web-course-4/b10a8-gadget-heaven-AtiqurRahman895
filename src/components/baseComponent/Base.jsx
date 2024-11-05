@@ -4,13 +4,22 @@
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useState } from "react";
+import { TransferLists } from "../../Contexts/TransferLists";
 
 const Base = () => {
+  const [cartList, setCartList] = useState([]);
+  const [wishList, setWishList] = useState([]);
+  const [totalCost, setTotalCost] = useState(0);
+
   return (
     <>
-    <Header/>
-    <Outlet/>
-    <Footer/>
+      <TransferLists.Provider value={[cartList, setCartList,wishList, setWishList,totalCost, setTotalCost]}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </TransferLists.Provider>
+
     </>
   );
 };

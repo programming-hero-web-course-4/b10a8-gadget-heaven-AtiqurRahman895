@@ -1,11 +1,13 @@
 // import React from 'react';
 // import PropTypes from 'prop-types';
 
+import { NavLink } from "react-router-dom";
+
 const NavMenus = () => {
   return (
     <>
       <li className="">
-        <a className="hover:bg-transparent">Home</a>
+        <NavLink to={"/"} className="hover:bg-transparent">Home</NavLink>
       </li>
       <li>
         <a className="hover:bg-transparent">Statistics</a>

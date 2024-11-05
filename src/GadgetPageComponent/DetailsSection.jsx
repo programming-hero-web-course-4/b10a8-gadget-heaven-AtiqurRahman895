@@ -1,11 +1,26 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { TransferGadget } from "../Contexts/TransferGadget";
 import ReactStars from "react-stars";
+import { TransferLists } from "../Contexts/TransferLists";
+import useAddToCart from "../Hooks/useAddToCart";
+import useAddToWishlist from "../Hooks/useAddToWishlist";
+// import useRemoveFromWishlist from "../Hooks/useRemoveFromWishlist";
+// import useRemoveFromCart from "../Hooks/useRemoveFromCart";
 
 const DetailsSection = ({BannerRef}) => {
     const specificGadget=useContext(TransferGadget)
+    const [cartList, setCartList,wishList, setWishList,totalCost, setTotalCost]=useContext(TransferLists)
+    const addToCart=useAddToCart({specificGadget,setCartList,totalCost,setTotalCost})
+    const addToWishList=useAddToWishlist({specificGadget,setWishList})
+
+    // const removeFromCart=useRemoveFromCart({specificGadget,cartList,setCartList,totalCost,setTotalCost})
+    // const removeFromWishlist=useRemoveFromWishlist({specificGadget,wishList,setWishList})
+
+
+
+    // console.log(cartList)
+
     return (
         <>
         <div ref={BannerRef} className='p-4 lg:p-5 bg-white rounded-lg w-full absolute'>
@@ -49,7 +64,7 @@ const DetailsSection = ({BannerRef}) => {
                             </div>
 
                             <div className="flex gap-3">
-                                <div className="primaryButton activePrimaryButton flex flex-nowrap gap-1 items-center">Add To Card
+                                <div onClick={addToCart} className="primaryButton activePrimaryButton flex flex-nowrap gap-1 items-center">Add To Card
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="h-5 w-5"
@@ -66,7 +81,7 @@ const DetailsSection = ({BannerRef}) => {
                                     </svg>
                                 </div>
 
-                                <div className="p-2 rounded-full duration-500 bg-custom-purple text-white border border-custom-purple hover:shadow-sm hover:bg-custom-half-purple hover:text-custom-purple">
+                                <div onClick={addToWishList} className={`p-2 rounded-full duration-500 bg-custom-purple border border-custom-purple hover:shadow-sm ${wishList.some(gadget=>gadget.product_id==specificGadget.product_id)?"bg-custom-half-purple text-custom-purple btn-disabled":"text-white"}`} >
                                     <svg
                                         className="h-5 w-5"
                                         viewBox="0 0 48 48"
@@ -96,8 +111,10 @@ const DetailsSection = ({BannerRef}) => {
     );
 };
 
-// DetailsSection.propTypes = {
-    
-// };
+DetailsSection.propTypes = {
+    BannerRef: PropTypes.shape({
+        current: PropTypes.instanceOf(Element),
+    }).isRequired,
+};
 
 export default DetailsSection;

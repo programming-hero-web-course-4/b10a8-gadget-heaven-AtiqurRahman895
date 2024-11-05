@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const AllGadgetsSection = ({datas}) => {
-    // console.log(allGadgets)
+    // console.log(datas)
     return (
         <>
             {datas.length===0?<div className=""><img src={notAvailable} alt="" className='w-full object-cover'/></div>:

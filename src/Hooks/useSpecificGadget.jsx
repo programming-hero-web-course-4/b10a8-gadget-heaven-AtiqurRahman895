@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import useAllGadgets from "./useAllGadgets";
+import useAllGadgets from "../../src/Hooks/useAllGadgets";
 
 const useSpecificGadget = ({ GadgetsId }) => {
   const [specificGadget, setSpecificGadget] = useState(null);

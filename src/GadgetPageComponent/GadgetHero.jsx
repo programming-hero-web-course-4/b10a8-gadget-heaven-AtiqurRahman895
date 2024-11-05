@@ -1,4 +1,3 @@
-// import React from 'react';
 // import PropTypes from 'prop-types';
 
 import { useRef } from "react";
@@ -7,10 +6,9 @@ import DetailsSection from "./DetailsSection";
 
 const GadgetHero = () => {
   const BannerRef = useRef(null);
-  const [bannerSectionWidth, bannerSectionHeight] = useBannerHeightWidth({
+  const [ , bannerSectionHeight] = useBannerHeightWidth({
     BannerRef,
   });
-  console.log(bannerSectionWidth,bannerSectionHeight)
   return (
     <section className="bg-custom-purple">
       <div
