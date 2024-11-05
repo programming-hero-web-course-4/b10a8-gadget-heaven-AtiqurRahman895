@@ -12,12 +12,12 @@ const GadgetHero = () => {
   });
   console.log(bannerSectionWidth,bannerSectionHeight)
   return (
-    <section className="">
+    <section className="bg-custom-purple">
       <div
-        className="container bg-custom-purple pt-24 sm:rounded-lg"
+        className="container pt-10"
         style={{
-          paddingBottom: `${bannerSectionHeight}px`,
-          marginBottom: `${bannerSectionHeight}px`,
+          paddingBottom: `${bannerSectionHeight/1.6}px`,
+          marginBottom: `${bannerSectionHeight/1.6}px`,
         }}
       >
         <div className="sm:mx-[5%] space-y-8 relative">

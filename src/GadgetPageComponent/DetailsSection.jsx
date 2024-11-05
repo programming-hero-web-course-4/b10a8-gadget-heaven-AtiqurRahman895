@@ -1,18 +1,18 @@
 // import React from 'react';
 // import PropTypes from 'prop-types';
-
 import { useContext } from "react";
 import { TransferGadget } from "../Contexts/TransferGadget";
+import ReactStars from "react-stars";
 
 const DetailsSection = ({BannerRef}) => {
     const specificGadget=useContext(TransferGadget)
     return (
         <>
-        <div ref={BannerRef} className='p-2 sm:p-3 lg:p-4 bg-white rounded-lg w-full absolute'>
+        <div ref={BannerRef} className='p-4 lg:p-5 bg-white rounded-lg w-full absolute'>
             {!specificGadget?<div>Loading gadget details...</div>:
                     <div className="grid md:grid-cols-[1fr,2fr] gap-4">
                         <img src={specificGadget.product_image} alt="" className="bg-custom-ash rounded-lg" />
-                        <div className="grid gap-2">
+                        <div className="grid gap-3">
                             <h5 className="">{specificGadget.product_title}</h5>
                             <span className="text-black">Price: $<span className="text-custom-orange">{specificGadget.price}</span></span>
                             <div className={`px-2.5 py-1 w-fit text-xs text-nowrap font-bold rounded-full duration-500 ${specificGadget.availability?"bg-custom-half-green":"bg-custom-half-red"} ${specificGadget.availability?"text-custom-green":"text-custom-red"} border ${specificGadget.availability?"border-custom-green":"border-custom-red"} hover:shadow-sm `}>
@@ -27,12 +27,28 @@ const DetailsSection = ({BannerRef}) => {
                                     ))}
                                 </ol>
                             </div>
-                            <div className="space-y-2">
+                            <div className="space-y-1">
                                 <p className="text-black">Rating</p>
+                                <div className="flex gap-2 items-center">
+                                    {  <ReactStars
+                                        count={5}
+                                        value={specificGadget.rating}
+                                        edit={false}
+                                        size={16}
+                                        isHalf={true}
+                                        emptyIcon={<i className="far fa-star"></i>}
+                                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                                        fullIcon={<i className="fa fa-star"></i>}
+                                        color1="#9538e24c"
+                                        color2="#9538E2"
+                                    />}
+                                    <div className="badge badge-ghost badge-md">{specificGadget.rating}</div>
+
+                                </div>
 
                             </div>
 
-                            <div className="flex gap-3 mt-2">
+                            <div className="flex gap-3">
                                 <div className="primaryButton activePrimaryButton flex flex-nowrap gap-1 items-center">Add To Card
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
