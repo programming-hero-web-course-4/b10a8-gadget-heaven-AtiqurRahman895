@@ -11,10 +11,12 @@ const Base = () => {
   const [cartList, setCartList] = useState([]);
   const [wishList, setWishList] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
+  const [showCart, setShowCart]=useState(true)
+
 
   return (
     <>
-      <TransferLists.Provider value={[cartList, setCartList,wishList, setWishList,totalCost, setTotalCost]}>
+      <TransferLists.Provider value={[cartList, setCartList,wishList, setWishList,totalCost, setTotalCost, showCart, setShowCart]}>
         <Header />
         <Outlet />
         <Footer />

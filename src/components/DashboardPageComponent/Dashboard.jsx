@@ -3,10 +3,11 @@
 import { Helmet } from "react-helmet-async";
 import DashboardHero from "./DashboardHero";
 import DashboardListsSection from "./DashboardListsSection";
-import { useState } from "react";
+import { useContext } from "react";
+import { TransferLists } from "../../Contexts/TransferLists";
 
 const Dashboard = () => {
-  const [showCart, setShowCart]=useState(true)
+  const [ , , , , , ,showCart,setShowCart] = useContext(TransferLists);
   return (
     <>
       <Helmet>

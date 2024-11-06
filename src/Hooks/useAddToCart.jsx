@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 
 const useAddToCart = ({specificGadget, setCartList,totalCost, setTotalCost}) => {
     const addToCart=()=>{
-
         toast.success(`You've added ${specificGadget.product_title} to the cart.`)
         setCartList((preCartList=>[...preCartList,specificGadget]))
         setTotalCost(totalCost+specificGadget.price)
