@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { TransferLists } from '../../Contexts/TransferLists';
 
-const NavIndicator = ({cartList,wishList,totalCost}) => {
+const NavIndicator = ({cartList,wishList,totalCost,itIsCart}) => {
     const navigate = useNavigate();  
     const [ , , , , , ,showCart,setShowCart, , ] = useContext(TransferLists);
-    const goToDashboard=(take)=>{
+    const goToDashboardCart=(take)=>{
         setShowCart(take)
         console.log(showCart)
         navigate("/dashboard")
@@ -21,7 +21,7 @@ const NavIndicator = ({cartList,wishList,totalCost}) => {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    <span className="badge badge-sm indicator-item top-[-5px]">{cartList.length}</span>
+                    <span className="badge badge-sm indicator-item top-[-5px]">{itIsCart?cartList.length:wishList.length}</span>
                 </div>
                 </div>
                 <div
@@ -29,16 +29,16 @@ const NavIndicator = ({cartList,wishList,totalCost}) => {
                 className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow text-custom-black"
                 >
                 <div className="card-body">
-                    <span className="text-lg font-bold">{cartList.length} Items</span>
-                    <span className="text-custom-purple">Subtotal: ${totalCost}</span>
+                    <span className="text-lg font-bold">{itIsCart?cartList.length:wishList.length} Items</span>
+                    {itIsCart&&<span className="text-custom-purple">Subtotal: ${totalCost}</span>}
                     <div className="card-actions">
-                    <button onClick={()=>goToDashboard(true)} className="btn bg-custom-purple text-white hover:text-black btn-block">View cart</button>
+                    <button onClick={()=>goToDashboardCart(itIsCart?true:false)} className="btn bg-custom-purple text-white hover:text-black btn-block">{itIsCart?"View cart":"View Wishlist"}</button>
                     </div>
                 </div>
                 </div>
             </div>
 
-            <div className="dropdown dropdown-end">
+            {/* <div className="dropdown dropdown-end">
                 <div tabIndex="0" role="button" className="btn btn-ghost btn-circle">
                 <div className="indicator">
                     <svg className="h-5 w-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -58,7 +58,7 @@ const NavIndicator = ({cartList,wishList,totalCost}) => {
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };
@@ -67,6 +67,7 @@ NavIndicator.propTypes = {
     cartList: PropTypes.array.isRequired,
     wishList: PropTypes.array.isRequired,
     totalCost: PropTypes.number.isRequired,
+    itIsCart: PropTypes.bool.isRequired
 };
 
 export default NavIndicator;

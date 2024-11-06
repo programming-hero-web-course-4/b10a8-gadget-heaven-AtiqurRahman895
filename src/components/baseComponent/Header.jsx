@@ -71,7 +71,8 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <NavIndicator cartList={cartList} wishList={wishList} totalCost={totalCost} />
+          <NavIndicator cartList={cartList} totalCost={totalCost} itIsCart={true} />
+          <NavIndicator wishList={wishList} itIsCart={false} />
         </div>
       </div>
     </header>
