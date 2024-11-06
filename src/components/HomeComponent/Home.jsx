@@ -7,7 +7,6 @@ import HomeHero from "./HomeHero";
 const Home = () => {
     return (
         <>
-
             <Helmet>
                 <title>Home | Gadget Heaven (PHeighthAssignment)</title>
             </Helmet>

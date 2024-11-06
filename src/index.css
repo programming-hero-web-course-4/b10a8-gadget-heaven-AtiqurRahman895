@@ -63,10 +63,13 @@
     backdrop-filter: blur(20px);
   }
   .heroButton1{
-    @apply px-4 py-2 w-fit text-sm text-nowrap font-bold rounded-full duration-500 bg-white text-custom-purple hover:bg-transparent hover:text-white border border-white
+    @apply px-4 py-2 w-fit text-sm text-nowrap font-bold rounded-full duration-500 bg-white text-custom-purple hover:bg-transparent hover:text-white hover:shadow-md border border-white
   }
   .heroButton2{
-    @apply px-4 py-2 w-fit text-sm text-nowrap font-bold rounded-full duration-500 bg-transparent text-white hover:bg-white hover:text-custom-purple border border-white
+    @apply px-4 py-2 text-center text-sm text-nowrap font-bold rounded-full duration-500 bg-transparent text-white hover:shadow-md border border-white
+  }
+  .activeHeroButton2{
+    @apply bg-white text-custom-purple 
   }
   .tabButton{
     @apply px-4 py-2.5 text-sm text-nowrap font-bold rounded-full duration-500 bg-custom-ash text-custom-black hover:shadow-md

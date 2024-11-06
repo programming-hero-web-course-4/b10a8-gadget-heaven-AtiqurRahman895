@@ -1,12 +1,12 @@
 // import PropTypes from 'prop-types';
 
 import { useRef } from "react";
-import useBannerHeightWidth from "../Hooks/useBannerHeightWidth";
+import useBannerHeightWidth from "../../Hooks/useBannerHeightWidth";
 import DetailsSection from "./DetailsSection";
 
 const GadgetHero = () => {
   const BannerRef = useRef(null);
-  const [ , bannerSectionHeight] = useBannerHeightWidth({
+  const [, bannerSectionHeight] = useBannerHeightWidth({
     BannerRef,
   });
   return (
@@ -14,8 +14,8 @@ const GadgetHero = () => {
       <div
         className="container pt-10"
         style={{
-          paddingBottom: `${bannerSectionHeight/1.6}px`,
-          marginBottom: `${bannerSectionHeight/1.6}px`,
+          paddingBottom: `${bannerSectionHeight / 1.6}px`,
+          marginBottom: `${bannerSectionHeight / 1.6}px`,
         }}
       >
         <div className="sm:mx-[5%] space-y-8 relative">

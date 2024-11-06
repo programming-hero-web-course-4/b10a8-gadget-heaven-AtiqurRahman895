@@ -20,10 +20,10 @@ const AllGadgetsSection = ({datas}) => {
                         <h6>{eachGadget.product_title}</h6>
     
                         <span className="">
-                            Price: $<span className="text-custom-orange">{eachGadget.price}</span>
+                            Price: $<span className="text-custom-orange"> {eachGadget.price}</span>
                         </span>
     
-                        <Link to={`gadget/${eachGadget.product_id}`} type="button" className="cardButton">
+                        <Link to={`/gadget/${eachGadget.product_id}`} type="button" className="cardButton">
                             View Details
                         </Link>
     

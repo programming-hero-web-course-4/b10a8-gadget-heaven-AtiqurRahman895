@@ -13,7 +13,7 @@ const NavMenus = () => {
         <a className="hover:bg-transparent">Statistics</a>
       </li>
       <li>
-        <a className="hover:bg-transparent">Dashboard</a>
+        <NavLink to={"/dashboard"} className="hover:bg-transparent">Dashboard</NavLink>
       </li>
     </>
   );

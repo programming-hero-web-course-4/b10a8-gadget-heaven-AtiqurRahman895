@@ -13,7 +13,7 @@ const GadgetsSection = () => {
   const [filteredGadgets] = useFilteredGadgets({ allGadgets, category });
 
   return (
-    <section className="py-10">
+    <section id="gadgetSection" className="py-10">
       <div className="container space-y-4">
         <h3 className="text-center">Explore Cutting-Edge Gadgets</h3>
 

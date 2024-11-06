@@ -28,7 +28,7 @@ const Hero = () => {
               next level. From smart devices to the coolest accessories, we have
               it all!
             </p>
-            <a href="" className="heroButton1">
+            <a href="#gadgetSection" className="heroButton1">
               Shop Now
             </a>
           </div>
