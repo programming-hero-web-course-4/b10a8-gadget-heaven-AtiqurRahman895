@@ -9,7 +9,7 @@ import usePurchase from "../../Hooks/usePurchase";
 
 
 const CartList = () => {
-  const [cartList,setCartList, , ,totalCost,setTotalCost, , ] = useContext(TransferLists);
+  const [cartList,setCartList, , ,totalCost,setTotalCost, , , ,setOrderList] = useContext(TransferLists);
   const [sortByPrice, setSortByPrice]= useState(false)
   const [openModal, setOpenModal]= useState(false)
 
@@ -29,14 +29,14 @@ const CartList = () => {
     }
 
   },[sortByPrice,setCartList])
-  const confirmPurchase= usePurchase({cartList,setOpenModal})
+  const confirmPurchase= usePurchase({cartList,totalCost,setOpenModal,setOrderList})
 
     return (
         <>
             <section className="py-10">
                 <div className="container space-y-5">
                     <div className="flex flex-col md:flex-row justify-between place-items-center gap-6">
-                        <h5>Cart: <span className="text-custom-purple">$ {totalCost}</span></h5>
+                        <h4>Cart: <span className="text-custom-purple">$ {totalCost}</span></h4>
                         <div className="flex gap-3 items-center">
                             <div onClick={makeSort} className={`p px-4 py-2 w-fit text-sm text-nowrap font-bold rounded-full duration-500 text-custom-purple border border-custom-purple ${sortByPrice?"bg-custom-half-purple":"bg-transparent"} flex items-center gap-1 cursor-pointer`}>
                                 Sort by Price 

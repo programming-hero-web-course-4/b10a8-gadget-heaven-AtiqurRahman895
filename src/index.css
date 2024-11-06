@@ -142,5 +142,10 @@
     border-bottom: 2px solid;
 }
 
+.menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply pl-0 lg:pl-4 ml-4 lg:ml-0 
+
+}
+
 
 }

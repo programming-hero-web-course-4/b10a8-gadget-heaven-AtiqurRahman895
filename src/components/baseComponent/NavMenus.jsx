@@ -6,14 +6,14 @@ import { NavLink } from "react-router-dom";
 const NavMenus = () => {
   return (
     <>
-      <li className="">
+      <li className="w-fit">
         <NavLink to={"/"} className="hover:bg-transparent">Home</NavLink>
       </li>
-      <li>
-        <a className="hover:bg-transparent">Statistics</a>
-      </li>
-      <li>
+      <li className="w-fit">
         <NavLink to={"/dashboard"} className="hover:bg-transparent">Dashboard</NavLink>
+      </li>
+      <li className="w-fit">
+      <NavLink to={"/history"} className="hover:bg-transparent">History</NavLink>
       </li>
     </>
   );

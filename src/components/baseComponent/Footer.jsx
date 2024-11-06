@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="bg-white">
             <div className="container space-y-6 py-12">
                 <div className="place-items-center space-y-1">
-                    <h5>Gadget Heaven</h5>
+                    <h3>Gadget Heaven</h3>
                     <p>Leading the way in cutting-edge technology and innovation.</p>
                 </div>
                 <div className="divider"></div>

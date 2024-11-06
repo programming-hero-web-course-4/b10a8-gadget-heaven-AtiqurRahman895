@@ -5,7 +5,7 @@ import { TransferLists } from '../../Contexts/TransferLists';
 import { Link } from 'react-router-dom';
 
 const CartListCard = ({specificGadget}) => {
-    const [cartList,setCartList, , ,totalCost,setTotalCost, , ] = useContext(TransferLists);
+    const [cartList,setCartList, , ,totalCost,setTotalCost, , , , ] = useContext(TransferLists);
     const removeFromCart=useRemoveFromCart({specificGadget,cartList,setCartList,totalCost,setTotalCost})
 
     return (

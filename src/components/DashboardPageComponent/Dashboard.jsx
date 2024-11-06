@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { TransferLists } from "../../Contexts/TransferLists";
 
 const Dashboard = () => {
-  const [ , , , , , ,showCart,setShowCart] = useContext(TransferLists);
+  const [ , , , , , ,showCart,setShowCart, , ] = useContext(TransferLists);
   return (
     <>
       <Helmet>
